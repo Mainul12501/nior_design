@@ -1,0 +1,66 @@
+.lip-finder-wrapper {
+  background-color: var(--primaryRed);
+  padding: 60px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.lip-finder-wrapper .card {
+  opacity: 0;
+  transform: translateX(200%);
+  position: absolute;
+  transition: all 0.3s ease-in;
+  color: #fff;
+}
+.lip-finder-wrapper .card h3, .lip-finder-wrapper .card h4, .lip-finder-wrapper .card button {
+  color: #fff;
+}
+.lip-finder-wrapper .card button {
+  border-color: #fff;
+}
+.lip-finder-wrapper .card.active {
+  opacity: 1;
+  position: static;
+  transform: none;
+}
+.lip-finder-wrapper .radio-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.lip-finder-wrapper .radio-container .input-radio-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 15px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+.lip-finder-wrapper .radio-container .input-radio-wrapper label {
+  margin-bottom: 0;
+}
+.lip-finder-wrapper .radio-container .input-radio-wrapper input[type=radio] {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  margin: 0;
+}
+.lip-finder-wrapper .radio-container .input-radio-wrapper input[type=radio]:checked {
+  background-color: rgba(127, 255, 212, 0.233);
+  border: 3px solid #ea4258;
+}
+.lip-finder-wrapper .radio-container .input-radio-wrapper input[type=radio]:hover {
+  cursor: pointer;
+}
+.lip-finder-wrapper #matchedProd .qodef-woo-product-list {
+  width: 25%;
+}
+.lip-finder-wrapper #matchedProd .loader-container {
+  text-align: center;
+  padding: 60px;
+}/*# sourceMappingURL=lip-finder.css.map */

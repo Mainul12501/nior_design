@@ -1,0 +1,201 @@
+.gift-finder-page-wrapper #qodef-page-inner {
+  width: 100%;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step {
+  opacity: 0;
+  transform: translateX(100%);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 100px 0;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .content {
+  color: #fff;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .content h3, .gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .content button, .gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .content h4, .gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .content label, .gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .content input {
+  color: #fff;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .content button {
+  border-color: #fff;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .step-image {
+  min-height: 100%;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .qodef-woo-product-list {
+  color: #000;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  gap: 15px;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step.active {
+  opacity: 1;
+  position: static;
+  transform: none;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .radio-container {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .radio-container .input-radio-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 15px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .radio-container .input-radio-wrapper label {
+  margin-bottom: 0;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .radio-container .input-radio-wrapper input[type=radio] {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  margin: 0;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .radio-container .input-radio-wrapper input[type=radio]:checked::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: red;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .radio-container .input-radio-wrapper input[type=radio]:hover {
+  cursor: pointer;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .checkbox-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .checkbox-container .input-checkbox-wrapper {
+  text-align: center;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .checkbox-container .input-checkbox-wrapper input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  height: 200px;
+  width: 100%;
+  background-size: cover;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .checkbox-container .input-checkbox-wrapper input[type=checkbox]::before {
+  content: "";
+  position: absolute;
+  background-image: url("../images/check-1.jpg");
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  left: 0;
+  top: 0;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .checkbox-container .input-checkbox-wrapper input[type=checkbox]:checked {
+  border: 3px solid #ccc;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .checkbox-container .input-checkbox-wrapper label {
+  font-size: 1rem;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step input.invalid {
+  border-color: red;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step-1 {
+  grid-template-columns: 100%;
+  text-align: center;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step-1 .content .content-data ul {
+  list-style: none;
+  font-family: "Roboto Condensed", sans-serif;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step-3 .radio-container {
+  grid-template-columns: repeat(2, 50%);
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step-4 .radio-container {
+  grid-template-columns: repeat(3, 33%);
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step-4 .radio-container .input-radio-wrapper {
+  height: 200px;
+  background-size: cover;
+  width: 100%;
+  background-position: center center;
+  border: 0;
+  border-radius: 15px;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step-4 .radio-container .input-radio-wrapper label {
+  position: absolute;
+  bottom: -15%;
+  left: 50%;
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: "Roboto Condensed";
+  transform: translateX(-50%);
+  width: 100%;
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step-5 .radio-container {
+  grid-template-columns: repeat(2, 50%);
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step-6 .radio-container {
+  grid-template-columns: repeat(2, 50%);
+}
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step-8 .qodef-woo-product-inner .qodef-woo-product-image,
+.gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step-8 .qodef-woo-product-inner .qodef-woo-product-content {
+  padding: 15px;
+}
+
+@media (max-width: 575px) {
+  .gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step {
+    display: block;
+    min-height: auto;
+    padding: 50px 0;
+  }
+  .gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .content .content-data {
+    text-align: center;
+  }
+  .gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .qodef-woo-product-list {
+    color: #000;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    gap: 15px;
+  }
+  .gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .qodef-woo-product-list .wp-element-button {
+    border: 1px solid;
+    padding: 5px 15px;
+    margin-top: 10px;
+  }
+  .gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step .step-image {
+    display: none;
+  }
+  .gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step-1 button {
+    padding: 0 40px;
+  }
+  .gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step-4 .radio-container .input-radio-wrapper {
+    height: 110px;
+    border-radius: 5px;
+  }
+  .gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step-4 .radio-container .input-radio-wrapper label {
+    bottom: -25%;
+  }
+  .gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step-7 .content h3 {
+    margin-top: 0;
+  }
+  .gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step-7 .content .form-wrapper {
+    margin-bottom: 20px;
+  }
+  .gift-finder-page-wrapper .gift-finder-wrapper .gift-finder-step-7 .final-submit-btn {
+    width: 100%;
+    padding: 0;
+  }
+}/*# sourceMappingURL=gift-finder.css.map */

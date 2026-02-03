@@ -1,0 +1,187 @@
+/*
+Theme Name: Parris Child
+Theme URI: https://parris.qodeinteractive.com
+Description: A child theme of Parris
+Author: Elated Themes
+Author URI: https://qodeinteractive.com
+Version: 1.0.0
+Text Domain: parris
+Template: parris
+*/
+
+:root{
+    --primaryRed: #91040b;
+    --primaryBottleGreen: #092d1f;
+}
+
+.qodef-side-area-cover{
+    display: none;
+}
+
+.header-top-wrapper{
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.header-top-wrapper .header-top-item{
+    display: block;
+    padding: 13px 0;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+    font-family: "Roboto Condensed",sans-serif;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in;
+    position: relative;
+}
+.header-top-wrapper .header-top-item:hover{
+    transform: scale(1.2);
+}
+.header-top-wrapper .header-top-item:nth-child(1){
+    background-color: var(--primaryRed);
+}
+.header-top-wrapper .header-top-item:nth-child(2){
+    background-color: var(--primaryBottleGreen);
+}
+
+.qodef-woo-product-inner:hover  .qodef-hover-product-image{
+    opacity: 1;
+    background-color: #f7f7f7;
+}
+.qodef-woo-product-inner:hover .qodef-woo-product-content{
+    opacity: 1 !important;
+}
+#qodef-woo-page.qodef--single .woocommerce-product-gallery.qodef-position--left figure a, #qodef-woo-page.qodef--single .woocommerce-product-gallery.qodef-position--left figure img{
+	background-color: #f7f7f7;
+}
+.nior-journey-home .qodef-blog-item .qodef-e-bottom-holder{
+	display: none;
+}
+.wof-wheel.wof-theme-vintage{
+	background-color: var(--primaryRed);
+}
+#qodef-woo-page.qodef--single .variations_form tbody tr:first-child .select_box_colorpicker{
+	margin: 0;
+	transform: translateX(10px);
+}
+#qodef-woo-page.qodef--single .variations_form tbody tr:first-child .select_box_colorpicker .select_option_colorpicker{
+	border-radius: 0;
+}
+
+.header-top-wrapper .header-top-item small{
+	font-size: 100%;
+    font-family: 'Dancing Script', cursive;
+    text-transform: none;
+    position: absolute;
+    top: 40%;
+    left: 53%;
+    opacity: 0.7;
+    transform: rotate(352deg);
+}
+
+@media(max-width: 800px){
+    .header-top-wrapper .header-top-item small{
+        display: none;
+    }
+}
+
+@media(max-width: 575px){
+    #qodef-content-bottom .custom-html-widget{
+        display: block;
+    }
+    #qodef-page-mobile-header .qodef-mobile-header-logo-link{
+        height: 40px !important;
+    }
+}
+
+/*
+Currency Switcher
+*/
+.qodef-header--centered #qodef-page-header-inner .qodef-header-navigation>ul>li>a .qodef-menu-item-text{
+    margin-top: 0;
+}
+
+#qodef-page-header .qodef-header-sticky-inner .qodef-header-logo-link{
+    height: 56px !important;
+}
+.qodef-header--centered #qodef-page-header-inner>div{
+    height: auto;
+    padding-top: 20px;
+}
+.qodef-header-navigation>ul{
+    line-height: 1;
+}
+.selectron23-container div:last-of-type{
+    font-family: "Roboto Condensed",sans-serif !important;
+}
+.instagram-follow-nior h3 span{
+    z-index: 9;
+}
+
+#qodef-side-area-mobile-header{
+    background-color: #91040b;
+    padding: 40px;
+}
+#qodef-side-area-mobile-header .qodef-widget-holder{
+    left: 40px;
+    top: 100px;
+    bottom: inherit;
+}
+#qodef-side-area-mobile-header .qodef-widget-holder .qodef-woo-side-area-cart .qodef-m-opener{
+    color: #fff;
+}
+
+.single-product #qodef-page-inner{
+    padding: 0px 0 100px;
+}
+
+.qodef-header-sticky .qodef-header-navigation>ul>li{
+    height: auto;
+}
+
+.qodef-header--centered #qodef-page-header .qodef-header-logo-link img:not(.qodef--main){
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+#qodef-page-mobile-header .qodef-mobile-header-logo-link img:not(.qodef--main) {
+    position: static;
+    top: 50%;
+    left: 0;
+    transform: none;
+    width: 140px;
+}
+
+.qodef-woo-product-list .qodef-woo-product-content{
+	padding: 15px !important;
+}
+
+.vcode{
+	max-width: 300px !important;
+  margin: 10px auto !important;
+  display: block !important;
+  padding: 5px 10px !important;
+  border: 1px solid #767181 !important;
+  color: #767181 !important;
+  border-radius: 25px !important;
+}
+.cverify{
+	background-color: #767181 !important;
+  color: #fff !important;
+  border-radius: 25px !important;
+}
+.ssmsg, .ermsg{
+ max-width: 300px !important;
+  margin: 0px auto 20px !important;
+  padding: 15px;
+color: #fff;
+	border-radius: 15px;
+}
+.ssmsg{
+	background-color: #767181;
+} 
+.ermsg{
+	background-color: #F64E60;
+}
