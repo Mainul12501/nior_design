@@ -2,19 +2,667 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>home</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/helper.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lip Finder | Nior Cosmetics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/helper.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --lf-red: #91040b;
+            --lf-accent: #ea4258;
+            --lf-cream: #fff6f3;
+        }
+
+        .lf-page {
+            background: #fff;
+        }
+
+        .lf-title-section {
+            background: #f7f7f7;
+            border-bottom: 1px solid var(--nior-border);
+            padding: 28px 0 22px;
+        }
+
+        .lf-breadcrumb {
+            font-family: var(--font-heading);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+
+        .lf-breadcrumb a {
+            color: var(--nior-text);
+        }
+
+        .lf-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+            color: var(--nior-muted);
+        }
+
+        .lf-page-title {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 32px;
+            margin: 0;
+        }
+
+        .lip-finder-wrapper {
+            background: var(--lf-red);
+            color: #fff;
+            padding: 70px 0 90px;
+        }
+
+        .lf-quiz-shell {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 36px 36px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.08);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .lf-stepper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        .lf-step-count {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .lf-progress {
+            flex: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lf-progress .progress-bar {
+            background: var(--lf-accent);
+            transition: width 0.3s ease;
+        }
+
+        .lf-card {
+            display: none;
+        }
+
+        .lf-card.is-active {
+            display: block;
+        }
+
+        .lf-card h3,
+        .lf-card h4 {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 400;
+        }
+
+        .lf-card h3 {
+            font-size: 30px;
+            margin-bottom: 14px;
+        }
+
+        .lf-card h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .lf-card p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .lf-radio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .lf-option {
+            position: relative;
+            width: 100%;
+        }
+
+        .lf-option input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .lf-option-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 14px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            font-size: 15px;
+            color: #fff;
+            min-height: 52px;
+            transition: all 0.2s ease;
+        }
+
+        .lf-option-label::after {
+            content: "";
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .lf-option input:checked + .lf-option-label {
+            border-color: var(--lf-accent);
+            background: rgba(234, 66, 88, 0.2);
+            box-shadow: inset 0 0 0 1px rgba(234, 66, 88, 0.6);
+        }
+
+        .lf-option input:checked + .lf-option-label::after {
+            background: var(--lf-accent);
+            border-color: var(--lf-accent);
+        }
+
+        .lf-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .lf-btn {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 12px;
+            padding: 12px 28px;
+            border-radius: 0;
+        }
+
+        .lf-btn-primary {
+            background: #fff;
+            border: 1px solid #fff;
+            color: var(--lf-red);
+        }
+
+        .lf-btn-primary:hover {
+            background: transparent;
+            color: #fff;
+        }
+
+        .lf-btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            color: #fff;
+            background: transparent;
+        }
+
+        .lf-btn-outline:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+        }
+
+        .lf-feedback {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #ffe1e1;
+            min-height: 18px;
+        }
+
+        .lf-result-card {
+            background: #fff;
+            color: var(--nior-text);
+            padding: 24px;
+        }
+
+        .lf-result-title {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .lf-result-product {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .lf-result-product img {
+            width: 100%;
+            background: #f7f7f7;
+            padding: 10px;
+        }
+
+        .lf-product-name {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .lf-price {
+            font-size: 15px;
+            color: var(--nior-muted);
+            margin-bottom: 14px;
+        }
+
+        .lf-result-cta {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 12px;
+            border: 1px solid var(--nior-text);
+            padding: 10px 22px;
+            background: transparent;
+        }
+
+        .lf-result-cta:hover {
+            background: var(--nior-text);
+            color: #fff;
+        }
+
+        @media (max-width: 991px) {
+            .lf-quiz-shell {
+                padding: 28px 22px 30px;
+            }
+
+            .lf-page-title {
+                font-size: 26px;
+            }
+
+            .lf-card h3 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .lip-finder-wrapper {
+                padding: 50px 0 70px;
+            }
+
+            .lf-stepper {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .lf-result-product {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
+<header class="site-header">
+    <div class="topbar">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-center gap-2 gap-md-4">
+            <a class="topbar-link" href="index.html">Nior Cosmetics <small>Amp up the glam</small></a>
+            <a class="topbar-link" href="skincare-home.html">Nior Skincare <small>Adore the glow</small></a>
+        </div>
+    </div>
+
+    <div class="header-main container">
+        <div class="row align-items-center g-2">
+            <div class="col-12 col-lg-4 order-2 order-lg-1">
+                <form class="search-form" role="search">
+                    <div class="input-group">
+                        <input type="search" class="form-control" placeholder="Search">
+                        <button class="btn btn-outline-dark" type="submit" aria-label="Search">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="11" cy="11" r="7"></circle>
+                                <line x1="16.65" y1="16.65" x2="21" y2="21"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 col-lg-4 order-1 order-lg-2 text-center">
+                <a class="logo" href="index.html">
+                    <img src="nior/wp-content/uploads/2024/07/Logo-Black-1.png" alt="Nior Cosmetics">
+                </a>
+            </div>
+            <div class="col-12 col-lg-4 order-3 text-center text-lg-end">
+                <div class="header-icons">
+                    <a href="wishlist.html" class="icon-link">
+                        <span>Wishlist</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 21s-7.5-4.35-9.75-8.5C.92 9.74 2.3 6.5 5.75 6.5c2.02 0 3.55 1.1 4.25 2.2.7-1.1 2.23-2.2 4.25-2.2 3.45 0 4.83 3.24 3.5 6-2.25 4.15-9.75 8.5-9.75 8.5z"></path>
+                        </svg>
+                    </a>
+                    <a href="cart.html" class="icon-link">
+                        <span>Bag 0</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 8h12l-1 12H7L6 8z"></path>
+                            <path d="M9 8V6a3 3 0 0 1 6 0v2"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light main-nav">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="land-of-glam.html">Land of glam</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="cosmetics.html">Cosmetics</a></li>
+                            <li><a class="dropdown-item" href="skincare.html">Skincare</a></li>
+                            <li><a class="dropdown-item" href="beauty-accessories.html">Beauty Accessories</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="todays-deal.html">Today's Deal</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Find Your Glam</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="gift-finder.html">Gift Finder</a></li>
+                            <li><a class="dropdown-item active" href="lip-finder.html">Lip Finder</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="nior-clang.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="store-locator.html">Store Locator</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main id="main-content" class="lf-page">
+    <section class="lf-title-section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb lf-breadcrumb mb-1">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Lip Finder</li>
+                </ol>
+            </nav>
+            <h1 class="lf-page-title">Lip Finder</h1>
+        </div>
+    </section>
+
+    <section class="lip-finder-wrapper">
+        <div class="container">
+            <div class="lf-quiz-shell">
+                <form data-multi-step>
+                    <div class="lf-stepper">
+                        <span class="lf-step-count" data-step-count>Step 1 of 4</span>
+                        <div class="progress lf-progress">
+                            <div class="progress-bar" role="progressbar" style="width: 25%" data-progress></div>
+                        </div>
+                    </div>
+
+                    <div class="lf-card is-active" data-step data-step-type="start">
+                        <h3>Find the perfect swatch</h3>
+                        <p>It's simpler than ever to find your next perfect color match online. Take the quiz and meet your desired shade in the NIOR Lip Collection.</p>
+                        <div class="lf-actions mt-4">
+                            <button class="lf-btn lf-btn-primary" type="button" data-next>Start</button>
+                        </div>
+                    </div>
+
+                    <div class="lf-card" data-step data-step-type="question" data-requires-choice="true">
+                        <h4>What is your skin tone?</h4>
+                        <div class="lf-radio-grid">
+                            <label class="lf-option">
+                                <input type="radio" name="skintone" value="light">
+                                <span class="lf-option-label">Light</span>
+                            </label>
+                            <label class="lf-option">
+                                <input type="radio" name="skintone" value="medium">
+                                <span class="lf-option-label">Medium</span>
+                            </label>
+                            <label class="lf-option">
+                                <input type="radio" name="skintone" value="dark">
+                                <span class="lf-option-label">Dark</span>
+                            </label>
+                        </div>
+                        <div class="lf-actions">
+                            <button type="button" class="lf-btn lf-btn-outline" data-prev>Previous</button>
+                            <button type="button" class="lf-btn lf-btn-primary" data-next>Next</button>
+                        </div>
+                        <div class="lf-feedback" data-feedback></div>
+                    </div>
+
+                    <div class="lf-card" data-step data-step-type="question" data-requires-choice="true">
+                        <h4>What are you waiting for?</h4>
+                        <div class="lf-radio-grid">
+                            <label class="lf-option">
+                                <input type="radio" name="look" value="everyday">
+                                <span class="lf-option-label">My everyday casual look</span>
+                            </label>
+                            <label class="lf-option">
+                                <input type="radio" name="look" value="party">
+                                <span class="lf-option-label">Party on my mind</span>
+                            </label>
+                            <label class="lf-option">
+                                <input type="radio" name="look" value="dramatic">
+                                <span class="lf-option-label">Dramatic evening</span>
+                            </label>
+                            <label class="lf-option">
+                                <input type="radio" name="look" value="professional">
+                                <span class="lf-option-label">The posh professional meeting</span>
+                            </label>
+                        </div>
+                        <div class="lf-actions">
+                            <button type="button" class="lf-btn lf-btn-outline" data-prev>Previous</button>
+                            <button type="button" class="lf-btn lf-btn-primary" data-next>Next</button>
+                        </div>
+                        <div class="lf-feedback" data-feedback></div>
+                    </div>
+
+                    <div class="lf-card" data-step data-step-type="question" data-requires-choice="true">
+                        <h4>The finishing your lips want</h4>
+                        <div class="lf-radio-grid">
+                            <label class="lf-option">
+                                <input type="radio" name="finishing" value="matte">
+                                <span class="lf-option-label">Matte</span>
+                            </label>
+                            <label class="lf-option">
+                                <input type="radio" name="finishing" value="cream">
+                                <span class="lf-option-label">Cream</span>
+                            </label>
+                        </div>
+                        <div class="lf-actions">
+                            <button type="button" class="lf-btn lf-btn-outline" data-prev>Previous</button>
+                            <button type="button" class="lf-btn lf-btn-primary" data-next>Next</button>
+                        </div>
+                        <div class="lf-feedback" data-feedback></div>
+                    </div>
+
+                    <div class="lf-card" data-step data-step-type="question" data-requires-choice="true">
+                        <h4>Clue of wanted hue</h4>
+                        <div class="lf-radio-grid">
+                            <label class="lf-option">
+                                <input type="radio" name="clue" value="dark">
+                                <span class="lf-option-label">Dark</span>
+                            </label>
+                            <label class="lf-option">
+                                <input type="radio" name="clue" value="soft">
+                                <span class="lf-option-label">Soft</span>
+                            </label>
+                            <label class="lf-option">
+                                <input type="radio" name="clue" value="nude">
+                                <span class="lf-option-label">Nude</span>
+                            </label>
+                        </div>
+                        <div class="lf-actions">
+                            <button type="button" class="lf-btn lf-btn-outline" data-prev>Previous</button>
+                            <button type="submit" class="lf-btn lf-btn-primary">Submit</button>
+                        </div>
+                        <div class="lf-feedback" data-feedback></div>
+                    </div>
+
+                    <div class="lf-card" data-step data-step-type="result">
+                        <div id="matchedProd" class="lf-result-card">
+                            <h3 class="lf-result-title">Your Lip Finder Product</h3>
+                            <div class="lf-result-product">
+                                <img src="nior/wp-content/uploads/2022/12/Matte-Lipstick.webp" alt="Matte Lipstick">
+                                <div>
+                                    <div class="lf-product-name">No Transfer Matte Lipstick</div>
+                                    <div class="lf-price">$16.00</div>
+                                    <button class="lf-result-cta" type="button">Add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <a href="index.html" class="footer-logo">
+                        <img src="nior/wp-content/uploads/2024/07/Logo-Black-1.png" alt="Nior Cosmetics" height="80">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Contact</h5>
+                    <div class="footer-contact">
+                        <p>Nior Cosmetics LLC</p>
+                        <p>71 Teresa place<br>Hempstead, New York 11550</p>
+                        <p>Email: <a href="mailto:info@nior.com">info@nior.com</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">About Us</h5>
+                    <ul class="footer-links">
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="video-tutorial-list.html">Video Tutorials</a></li>
+                        <li><a href="our-collections.html">Our Collections</a></li>
+                        <li><a href="gift-cards.html">Gift Cards</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Customer Service</h5>
+                    <ul class="footer-links">
+                        <li><a href="faq-page.html">FAQs</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <div class="footer-copyright">
+                    &copy; 2023 <a href="#">Nior Cosmetics</a>, All Rights Reserved
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/niorglobal" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/nior_global" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@niorglobal" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@niorglobal" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<button class="back-to-top" type="button" aria-label="Back to top">
+    <span>Back to top</span>
+</button>
 
 <script src="js/jquery-4.0.0.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js"></script>
+<script>
+    const multiStepForm = document.querySelector("[data-multi-step]");
+    const steps = [...multiStepForm.querySelectorAll("[data-step]")];
+    const progressBar = document.querySelector("[data-progress]");
+    const stepCount = document.querySelector("[data-step-count]");
+    const questionSteps = steps.filter(step => step.dataset.stepType === "question");
+
+    let currentStep = steps.findIndex(step => step.classList.contains("is-active"));
+    if (currentStep < 0) currentStep = 0;
+
+    const updateProgress = () => {
+        const current = steps[currentStep];
+        const questionIndex = questionSteps.indexOf(current);
+
+        if (questionIndex >= 0) {
+            const percent = Math.round(((questionIndex + 1) / questionSteps.length) * 100);
+            stepCount.textContent = `Step ${questionIndex + 1} of ${questionSteps.length}`;
+            progressBar.style.width = `${percent}%`;
+        } else if (current.dataset.stepType === "result") {
+            stepCount.textContent = "Complete";
+            progressBar.style.width = "100%";
+        } else {
+            stepCount.textContent = `Step 1 of ${questionSteps.length}`;
+            progressBar.style.width = "0%";
+        }
+    };
+
+    const showStep = (index) => {
+        steps.forEach((step, idx) => step.classList.toggle("is-active", idx === index));
+        updateProgress();
+    };
+
+    const validateStep = () => {
+        const current = steps[currentStep];
+        const requiresChoice = current.dataset.requiresChoice === "true";
+        if (!requiresChoice) return true;
+
+        const checked = current.querySelector("input[type=radio]:checked");
+        const feedback = current.querySelector("[data-feedback]");
+        if (checked) {
+            if (feedback) feedback.textContent = "";
+            return true;
+        }
+
+        if (feedback) feedback.textContent = "Please select an option to continue.";
+        return false;
+    };
+
+    multiStepForm.addEventListener("click", (event) => {
+        const nextButton = event.target.closest("[data-next]");
+        const prevButton = event.target.closest("[data-prev]");
+
+        if (nextButton) {
+            if (!validateStep()) return;
+            currentStep = Math.min(currentStep + 1, steps.length - 1);
+            showStep(currentStep);
+        }
+
+        if (prevButton) {
+            currentStep = Math.max(currentStep - 1, 0);
+            showStep(currentStep);
+        }
+    });
+
+    multiStepForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!validateStep()) return;
+        currentStep = steps.length - 1;
+        showStep(currentStep);
+    });
+
+    showStep(currentStep);
+</script>
 </body>
 </html>
