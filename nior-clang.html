@@ -2,16 +2,573 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>home</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/helper.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nior Clang | Nior Cosmetics</title>
+    <link rel="icon" href="nior/wp-content/uploads/2022/12/nior-fav-2-e1659775954485-150x150-1-100x100.png" sizes="32x32">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/helper.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .clang-hero {
+            position: relative;
+            height: 360px;
+            background: url("nior/wp-content/uploads/2023/01/1920x1080.webp") center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .clang-hero .container {
+            padding-bottom: 44px;
+            text-align: center;
+        }
+
+        .clang-hero-title {
+            font-family: "Roboto Condensed", sans-serif;
+            color: #fff;
+            font-size: 67px;
+            line-height: 0.97;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .clang-content {
+            padding: 120px 0 40px;
+        }
+
+        .clang-container {
+            max-width: 1200px;
+        }
+
+        .clang-content .row {
+            --bs-gutter-x: 3rem;
+        }
+
+        .clang-post {
+            position: relative;
+            margin-bottom: 57px;
+        }
+
+        .clang-post-media {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .clang-post-media img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .clang-date {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 66px;
+            background: #fff;
+            color: #000;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .clang-date .day {
+            font-size: 21px;
+            font-weight: 700;
+            font-family: "Roboto Condensed", sans-serif;
+            letter-spacing: 0.1em;
+            margin-top: 12px;
+        }
+
+        .clang-date .month {
+            font-size: 13px;
+            font-weight: 300;
+            font-family: "Roboto Condensed", sans-serif;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transform: translateY(-2px);
+            margin-bottom: 6px;
+        }
+
+        .clang-category {
+            font-family: "Roboto Condensed", sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            line-height: 3em;
+            font-size: 13px;
+            color: #000;
+            text-transform: uppercase;
+        }
+
+        .clang-title {
+            font-family: "Roboto Condensed", sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #000;
+            font-size: 57px;
+            line-height: 1.05;
+            margin: 0 0 10px;
+        }
+
+        .clang-author {
+            font-size: 17px;
+            line-height: 1.412em;
+            color: #333;
+        }
+
+        .clang-sidebar {
+            position: sticky;
+            top: 140px;
+        }
+
+        .clang-widget {
+            margin-bottom: 26px;
+        }
+
+        .clang-widget-title {
+            font-family: "Roboto Condensed", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .clang-sidebar .form-control {
+            border-radius: 0;
+            border: 1px solid #d6d6d6;
+            padding: 14px 20px 3px 20px;
+            font-size: 14px;
+            line-height: 24px;
+            height: auto;
+        }
+
+        .clang-sidebar .btn-search {
+            border-radius: 0;
+            border: 1px solid #d6d6d6;
+            border-left: 0;
+        }
+
+        .clang-social a {
+            display: block;
+            font-family: "Roboto Condensed", sans-serif;
+            letter-spacing: 0.2em;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #000;
+            margin-bottom: 6px;
+        }
+
+        .clang-category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .clang-category-list li {
+            margin-bottom: 6px;
+        }
+
+        .clang-banner {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .clang-banner img {
+            width: 100%;
+            display: block;
+        }
+
+        .clang-banner-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 28px;
+            color: #fff;
+        }
+
+        .clang-banner-title,
+        .clang-banner-subtitle {
+            font-family: "Roboto Condensed", sans-serif;
+            font-size: 32px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .clang-banner-link {
+            margin-top: 18px;
+            font-family: "Roboto Condensed", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 12px;
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 991px) {
+            .clang-content {
+                padding-top: 70px;
+            }
+
+            .clang-title {
+                font-size: 40px;
+            }
+
+            .clang-hero-title {
+                font-size: 48px;
+            }
+
+            .clang-sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .clang-title {
+                font-size: 32px;
+            }
+        }
+    </style>
 </head>
 <body>
+<a class="skip-link visually-hidden-focusable" href="#main-content">Skip to content</a>
 
+<div class="topbar">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-center gap-2 gap-md-5">
+        <a class="topbar-link" href="index.html">Nior Cosmetics <small>Amp up the glam</small></a>
+        <a class="topbar-link" href="skincare-home.html">Nior Skincare <small>Adore the glow</small></a>
+    </div>
+</div>
+
+<header id="site-header" class="site-header">
+    <div class="header-main">
+        <div class="container">
+            <div class="row align-items-center g-3">
+                <div class="col-12 col-lg-4 order-2 order-lg-1">
+                    <form class="search-form" role="search">
+                        <div class="input-group">
+                            <input type="search" class="form-control" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-search" type="submit" aria-label="Search">
+                                <svg viewBox="0 0 24 24" width="15" height="15">
+                                    <circle fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" cx="11" cy="11" r="6"></circle>
+                                    <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" x1="18.5" y1="18.5" x2="15" y2="15"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 col-lg-4 order-1 order-lg-2 text-center">
+                    <a class="logo" href="index.html">
+                        <img src="nior/wp-content/uploads/2024/07/Logo-Black-1.png" alt="Nior Cosmetics" height="40">
+                    </a>
+                </div>
+                <div class="col-12 col-lg-4 order-3 text-center text-lg-end">
+                    <div class="header-icons">
+                        <a href="wishlist.html" class="icon-link">
+                            <span class="icon-text">Wishlist</span>
+                            <svg viewBox="0 0 16.766 14.611" width="16" height="14">
+                                <path d="M8.371,14.376c-0.133,0-0.26-0.053-0.354-0.146L1.696,7.908c-1.729-1.729-1.729-4.542,0-6.271c0.837-0.837,1.951-1.299,3.136-1.299s2.299,0.461,3.136,1.299l0.403,0.404l0.404-0.404c0.835-0.827,1.941-1.282,3.117-1.282c1.185,0,2.298,0.461,3.136,1.299c1.729,1.73,1.729,4.543,0,6.271l-6.322,6.322C8.631,14.323,8.504,14.376,8.371,14.376z"></path>
+                            </svg>
+                            <span class="icon-count">0</span>
+                        </a>
+                        <a href="cart.html" class="icon-link">
+                            <span class="icon-text">Bag</span>
+                            <svg viewBox="5.333 3.896 13.333 16.186" width="13" height="16">
+                                <path fill="none" stroke="currentColor" stroke-miterlimit="10" d="M5.905,8.138v10.026c0,0.748,0.606,1.355,1.354,1.355h9.48c0.748,0,1.354-0.607,1.354-1.355V8.138H5.905z"></path>
+                                <path fill="none" stroke="currentColor" stroke-miterlimit="10" d="M8.51,7.974c0-1.928,1.563-3.493,3.49-3.493s3.49,1.565,3.49,3.493"></path>
+                            </svg>
+                            <span class="icon-count">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg main-nav">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="land-of-glam.html">Land of glam</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="cosmetics.html">Cosmetics</a></li>
+                            <li><a class="dropdown-item" href="skincare.html">Skincare</a></li>
+                            <li><a class="dropdown-item" href="beauty-accessories.html">Beauty Accessories</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="todays-deal.html">Today's Deal</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Find Your Glam</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="lip-finder.html">Lip Finder</a></li>
+                            <li><a class="dropdown-item" href="gift-finder.html">Gift Finder</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Nior Clang</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="nior-clang.html">Blog</a></li>
+                            <li><a class="dropdown-item" href="https://www.tiktok.com/@niorglobal" target="_blank"><i class="fab fa-tiktok me-2"></i>Tiktok Glory</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="store-locator.html">Store Locator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main id="main-content">
+    <section class="clang-hero">
+        <div class="container">
+            <h1 class="clang-hero-title">Nior Clang</h1>
+        </div>
+    </section>
+
+    <section class="clang-content">
+        <div class="container clang-container">
+            <div class="row g-4">
+                <div class="col-lg-9 order-2 order-lg-1">
+                    <article class="clang-post">
+                        <div class="clang-post-media">
+                            <div class="clang-date">
+                                <div class="day">18.</div>
+                                <div class="month">Feb</div>
+                            </div>
+                            <a href="nior/practice-self-care-with-5-healthy-habits-to-take-your-power-back/index.htm">
+                                <img src="nior/wp-content/uploads/2023/02/To-flourish_-we-must-take-ownership-of-our-lives-and-learn-how-to-practice-self-care.webp" alt="Practice Self-Care With 5 Healthy Habits to Take Your Power Back">
+                            </a>
+                        </div>
+                        <div class="clang-category">
+                            <a href="nior/category/tips-tricks/index.htm">Tips &amp; Tricks</a>
+                        </div>
+                        <h2 class="clang-title">
+                            <a href="nior/practice-self-care-with-5-healthy-habits-to-take-your-power-back/index.htm">Practice Self-Care With 5 Healthy Habits to Take Your Power Back</a>
+                        </h2>
+                        <div class="clang-author">
+                            <a href="nior/index.htm">nior</a>
+                        </div>
+                    </article>
+
+                    <article class="clang-post">
+                        <div class="clang-post-media">
+                            <div class="clang-date">
+                                <div class="day">31.</div>
+                                <div class="month">Dec</div>
+                            </div>
+                            <a href="nior/nior-summer-feast-2022/index.htm">
+                                <img src="nior/wp-content/uploads/2022/12/summer-fest.jpg" alt="NIOR SUMMER FEAST 2022">
+                            </a>
+                        </div>
+                        <div class="clang-category">
+                            <a href="nior/category/news/index.htm">News</a>
+                        </div>
+                        <h2 class="clang-title">
+                            <a href="nior/nior-summer-feast-2022/index.htm">NIOR SUMMER FEAST 2022</a>
+                        </h2>
+                        <div class="clang-author">
+                            <a href="nior/index.htm">nior</a>
+                        </div>
+                    </article>
+
+                    <article class="clang-post" style="margin-bottom: 0;">
+                        <div class="clang-post-media">
+                            <div class="clang-date">
+                                <div class="day">27.</div>
+                                <div class="month">Dec</div>
+                            </div>
+                            <a href="nior/a-tale-of-enduring-influence-on-the-present-and-the-future/index.htm">
+                                <img src="nior/wp-content/uploads/2022/12/nior-future.webp" alt="Nior A Tale of Enduring Influence on the Present and the Future">
+                            </a>
+                        </div>
+                        <div class="clang-category">
+                            <a href="nior/category/nior-journey/index.htm">Nior Journey</a>
+                        </div>
+                        <h2 class="clang-title">
+                            <a href="nior/a-tale-of-enduring-influence-on-the-present-and-the-future/index.htm">Nior A Tale of Enduring Influence on the Present and the Future</a>
+                        </h2>
+                        <div class="clang-author">
+                            <a href="nior/index.htm">nior</a>
+                        </div>
+                    </article>
+                </div>
+
+                <aside class="col-lg-3 order-1 order-lg-2">
+                    <div class="clang-sidebar">
+                        <div class="clang-widget">
+                            <form class="search-form" role="search">
+                                <div class="input-group">
+                                    <input type="search" class="form-control" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-search" type="submit" aria-label="Search">
+                                        <svg viewBox="0 0 24 24" width="15" height="15">
+                                            <circle fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" cx="11" cy="11" r="6"></circle>
+                                            <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" x1="18.5" y1="18.5" x2="15" y2="15"></line>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="clang-widget">
+                            <div class="clang-widget-title">Our Social</div>
+                            <div class="clang-social">
+                                <a href="https://www.instagram.com/nior_global/">Instagram</a>
+                                <a href="https://www.facebook.com/niorglobal">Facebook</a>
+                                <a href="https://www.youtube.com/@niorglobal">YouTube</a>
+                                <a href="https://www.tiktok.com/@niorglobal">Tiktok</a>
+                            </div>
+                        </div>
+
+                        <div class="clang-widget">
+                            <div class="clang-widget-title">Categories</div>
+                            <ul class="clang-category-list">
+                                <li><a href="nior/category/news/index.htm">News</a></li>
+                                <li><a href="nior/category/nior-journey/index.htm">Nior Journey</a></li>
+                                <li><a href="nior/category/tips-tricks/index.htm">Tips &amp; Tricks</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="clang-widget">
+                            <div class="clang-banner">
+                                <img src="nior/wp-content/uploads/2021/04/Blog-Sidebar-banner.jpg" alt="Lip Finder">
+                                <div class="clang-banner-content">
+                                    <div class="clang-banner-title">Lip</div>
+                                    <div class="clang-banner-subtitle">Finder</div>
+                                    <a class="clang-banner-link" href="lip-finder.html">Try Now</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clang-widget">
+                            <div class="clang-widget-title">Instagram</div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-instagram">
+        <div class="container">
+            <div class="instagram-header">
+                <h3 class="instagram-title">#nior_global <span class="cursive-text">Follow Us</span></h3>
+            </div>
+            <div class="instagram-grid">
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2025/09/Products_SPF-Sunscreen.png" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2025/05/Nior-Red-Carpet-Flawless-Matte-Concealer-Front-Amaretto.png" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2022/12/Nior-Red-Carpet-Lip-Color-Alaska.png" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2022/12/Nior-Volume-Mascara-3D.webp" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2022/12/Nior-Cat-Eye-the-Liner.png" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2025/05/NIOR-Foundation-Truffle-3C-Cool.png" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2025/05/NIOR-Foundation-Product-Amaretto-3N-Neutral.png" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2025/05/NIOR-Foundation-Product-Hazelnut-2C-Cool-1.png" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2022/12/ash-brown.png" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2022/12/espresso.png" alt="Nior product">
+                </a>
+            </div>
+            <div class="text-center mt-4">
+                <a class="btn-instagram" href="https://www.instagram.com/nior_global/" target="_blank" rel="noopener">
+                    <i class="fab fa-instagram me-2"></i>Follow on Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <a href="index.html" class="footer-logo">
+                        <img src="nior/wp-content/uploads/2024/07/Logo-Black-1.png" alt="Nior Cosmetics" height="80">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Contact</h5>
+                    <div class="footer-contact">
+                        <p>Nior Cosmetics LLC</p>
+                        <p>71 Teresa place<br>Hempstead, New York 11550</p>
+                        <p>Email: <a href="mailto:info@nior.com">info@nior.com</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">About Us</h5>
+                    <ul class="footer-links">
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="video-tutorial-list.html">Video Tutorials</a></li>
+                        <li><a href="our-collections.html">Our Collections</a></li>
+                        <li><a href="gift-cards.html">Gift Cards</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Customer Service</h5>
+                    <ul class="footer-links">
+                        <li><a href="faq-page.html">FAQs</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <div class="footer-copyright">
+                    &copy; 2023 <a href="#">Nior Cosmetics</a>, All Rights Reserved
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/niorglobal" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/nior_global" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@niorglobal" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@niorglobal" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<button class="back-to-top" type="button" aria-label="Back to top">
+    <span>Back to top</span>
+</button>
 
 <script src="js/jquery-4.0.0.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>

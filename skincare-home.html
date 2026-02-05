@@ -2,16 +2,417 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>home</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/helper.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nior Skincare | Adore the glow</title>
+    <link rel="icon" href="nior/wp-content/uploads/2022/12/nior-fav-2-e1659775954485-150x150-1-100x100.png" sizes="32x32">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/helper.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .skh-hero {
+            padding: 26px 0 10px;
+        }
+
+        .skh-hero-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .skh-hero-item {
+            position: relative;
+            overflow: hidden;
+            background: #f6f6f6;
+        }
+
+        .skh-hero-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .skh-arrivals {
+            padding: 30px 0 10px;
+        }
+
+        .skh-title {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 18px;
+            margin: 0;
+            color: #111;
+        }
+
+        .skh-cta {
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 12px;
+            padding: 9px 22px;
+            border: 1px solid #111;
+            color: #111;
+            background: #fff;
+            border-radius: 999px;
+        }
+
+        .skh-cta:hover {
+            background: #111;
+            color: #fff;
+        }
+
+        .skh-products {
+            padding: 20px 0 80px;
+        }
+
+        .skh-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            text-align: center;
+        }
+
+        .skh-image {
+            background: #f7f7f7;
+            padding: 18px;
+            min-height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .skh-image img {
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+        }
+
+        .skh-card-title {
+            margin-top: 12px;
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 12px;
+            color: #111;
+        }
+
+        @media (max-width: 991px) {
+            .skh-hero-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .skh-arrivals {
+                padding-top: 22px;
+            }
+        }
+    </style>
 </head>
 <body>
+<a class="skip-link visually-hidden-focusable" href="#main-content">Skip to content</a>
 
+<div class="topbar">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-center gap-2 gap-md-5">
+        <a class="topbar-link" href="index.html">Nior Cosmetics <small>Amp up the glam</small></a>
+        <a class="topbar-link" href="skincare-home.html">Nior Skincare <small>Adore the glow</small></a>
+    </div>
+</div>
+
+<header id="site-header" class="site-header">
+    <div class="header-main">
+        <div class="container">
+            <div class="row align-items-center g-3">
+                <div class="col-12 col-lg-4 order-2 order-lg-1">
+                    <form class="search-form" role="search">
+                        <div class="input-group">
+                            <input type="search" class="form-control" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-search" type="submit" aria-label="Search">
+                                <svg viewBox="0 0 24 24" width="15" height="15">
+                                    <circle fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" cx="11" cy="11" r="6"></circle>
+                                    <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" x1="18.5" y1="18.5" x2="15" y2="15"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 col-lg-4 order-1 order-lg-2 text-center">
+                    <a class="logo" href="index.html">
+                        <img src="nior/wp-content/uploads/2024/07/Logo-Black-1.png" alt="Nior Cosmetics" height="40">
+                    </a>
+                </div>
+                <div class="col-12 col-lg-4 order-3 text-center text-lg-end">
+                    <div class="header-icons">
+                        <a href="wishlist.html" class="icon-link">
+                            <span class="icon-text">Wishlist</span>
+                            <svg viewBox="0 0 16.766 14.611" width="16" height="14">
+                                <path d="M8.371,14.376c-0.133,0-0.26-0.053-0.354-0.146L1.696,7.908c-1.729-1.729-1.729-4.542,0-6.271c0.837-0.837,1.951-1.299,3.136-1.299s2.299,0.461,3.136,1.299l0.403,0.404l0.404-0.404c0.835-0.827,1.941-1.282,3.117-1.282c1.185,0,2.298,0.461,3.136,1.299c1.729,1.73,1.729,4.543,0,6.271l-6.322,6.322C8.631,14.323,8.504,14.376,8.371,14.376z"></path>
+                            </svg>
+                            <span class="icon-count">0</span>
+                        </a>
+                        <a href="cart.html" class="icon-link">
+                            <span class="icon-text">Bag</span>
+                            <svg viewBox="5.333 3.896 13.333 16.186" width="13" height="16">
+                                <path fill="none" stroke="currentColor" stroke-miterlimit="10" d="M5.905,8.138v10.026c0,0.748,0.606,1.355,1.354,1.355h9.48c0.748,0,1.354-0.607,1.354-1.355V8.138H5.905z"></path>
+                                <path fill="none" stroke="currentColor" stroke-miterlimit="10" d="M8.51,7.974c0-1.928,1.563-3.493,3.49-3.493s3.49,1.565,3.49,3.493"></path>
+                            </svg>
+                            <span class="icon-count">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg main-nav">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="land-of-glam.html">Land of glam</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="cosmetics.html">Cosmetics</a></li>
+                            <li><a class="dropdown-item" href="skincare.html">Skincare</a></li>
+                            <li><a class="dropdown-item" href="beauty-accessories.html">Beauty Accessories</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="todays-deal.html">Today's Deal</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Find Your Glam</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="lip-finder.html">Lip Finder</a></li>
+                            <li><a class="dropdown-item" href="gift-finder.html">Gift Finder</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Nior Clang</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="nior-clang.html">Blog</a></li>
+                            <li><a class="dropdown-item" href="https://www.tiktok.com/@niorglobal" target="_blank"><i class="fab fa-tiktok me-2"></i>Tiktok Glory</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="store-locator.html">Store Locator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main id="main-content">
+    <section class="skh-hero">
+        <div class="container">
+            <div class="skh-hero-grid">
+                <div class="skh-hero-item">
+                    <img src="https://nior.com/wp-content/uploads/2024/02/Frame-1171275523-1-1.png" alt="Skincare feature">
+                </div>
+                <div class="skh-hero-item">
+                    <img src="https://nior.com/wp-content/uploads/2024/02/Frame-1171275428-1-1.png" alt="Skincare feature">
+                </div>
+                <div class="skh-hero-item">
+                    <img src="https://nior.com/wp-content/uploads/2024/02/Frame-1171275528-1-1.png" alt="Skincare feature">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skh-arrivals">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
+                <h2 class="skh-title">New arrivals</h2>
+                <a class="skh-cta" href="skincare.html">Shop Best Seller</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="skh-products">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a class="skh-card" href="#">
+                        <div class="skh-image">
+                            <img src="nior/wp-content/uploads/2022/12/Products_DG_Serum.png" alt="Crystal Clear Brightening Serum">
+                        </div>
+                        <div class="skh-card-title">Crystal Clear Brightening Serum</div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a class="skh-card" href="#">
+                        <div class="skh-image">
+                            <img src="nior/wp-content/uploads/2023/10/Products_Ultra-Hydrating.png" alt="Acnes Battle Kit">
+                        </div>
+                        <div class="skh-card-title">Acnes Battle Kit</div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a class="skh-card" href="#">
+                        <div class="skh-image">
+                            <img src="nior/wp-content/uploads/2024/08/SoothingGel.png" alt="Rejucol Caffeine Eye Serum">
+                        </div>
+                        <div class="skh-card-title">Rejucol Caffeine Eye Serum</div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a class="skh-card" href="#">
+                        <div class="skh-image">
+                            <img src="nior/wp-content/uploads/2023/07/NIOR-SNAIL-ABALONE-COLLAGEN-99.99-MOISTURE-SOOTHING-GEL.png" alt="Cica Gel">
+                        </div>
+                        <div class="skh-card-title">Cica Gel</div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a class="skh-card" href="#">
+                        <div class="skh-image">
+                            <img src="nior/wp-content/uploads/2022/12/Nior-Aloe-Soothing-Gel.png" alt="Aloe Vera Gel">
+                        </div>
+                        <div class="skh-card-title">Aloe Vera Gel</div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a class="skh-card" href="#">
+                        <div class="skh-image">
+                            <img src="nior/wp-content/uploads/2022/12/Products_DG_Serum.png" alt="Hyaluronic Acid B5 Serum">
+                        </div>
+                        <div class="skh-card-title">Hyaluronic Acid B5 Serum</div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a class="skh-card" href="#">
+                        <div class="skh-image">
+                            <img src="nior/wp-content/uploads/2023/10/Products_Ultra-Hydrating.png" alt="Gentle Cleansing Oil">
+                        </div>
+                        <div class="skh-card-title">Gentle Cleansing Oil</div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a class="skh-card" href="#">
+                        <div class="skh-image">
+                            <img src="nior/wp-content/uploads/2025/09/Products_SPF-Sunscreen.png" alt="Sunblock">
+                        </div>
+                        <div class="skh-card-title">Sunblock</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-instagram">
+        <div class="container">
+            <div class="instagram-header">
+                <h3 class="instagram-title">#nior_global <span class="cursive-text">Follow Us</span></h3>
+            </div>
+            <div class="instagram-grid">
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2025/09/Products_SPF-Sunscreen.png" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2025/05/Nior-Red-Carpet-Flawless-Matte-Concealer-Front-Amaretto.png" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2022/12/Nior-Red-Carpet-Lip-Color-Alaska.png" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2022/12/Nior-Volume-Mascara-3D.webp" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2022/12/Nior-Cat-Eye-the-Liner.png" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2025/05/NIOR-Foundation-Truffle-3C-Cool.png" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2025/05/NIOR-Foundation-Product-Amaretto-3N-Neutral.png" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2025/05/NIOR-Foundation-Product-Hazelnut-2C-Cool-1.png" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2022/12/ash-brown.png" alt="Nior product">
+                </a>
+                <a href="https://www.instagram.com/nior_global/" target="_blank" class="instagram-item">
+                    <img src="nior/wp-content/uploads/2022/12/espresso.png" alt="Nior product">
+                </a>
+            </div>
+            <div class="text-center mt-4">
+                <a class="btn-instagram" href="https://www.instagram.com/nior_global/" target="_blank" rel="noopener">
+                    <i class="fab fa-instagram me-2"></i>Follow on Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <a href="index.html" class="footer-logo">
+                        <img src="nior/wp-content/uploads/2024/07/Logo-Black-1.png" alt="Nior Cosmetics" height="80">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Contact</h5>
+                    <div class="footer-contact">
+                        <p>Nior Cosmetics LLC</p>
+                        <p>71 Teresa place<br>Hempstead, New York 11550</p>
+                        <p>Email: <a href="mailto:info@nior.com">info@nior.com</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">About Us</h5>
+                    <ul class="footer-links">
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="video-tutorial-list.html">Video Tutorials</a></li>
+                        <li><a href="our-collections.html">Our Collections</a></li>
+                        <li><a href="gift-cards.html">Gift Cards</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Customer Service</h5>
+                    <ul class="footer-links">
+                        <li><a href="faq-page.html">FAQs</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <div class="footer-copyright">
+                    &copy; 2023 <a href="#">Nior Cosmetics</a>, All Rights Reserved
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/niorglobal" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/nior_global" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@niorglobal" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@niorglobal" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<button class="back-to-top" type="button" aria-label="Back to top">
+    <span>Back to top</span>
+</button>
 
 <script src="js/jquery-4.0.0.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
